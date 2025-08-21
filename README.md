@@ -13,26 +13,14 @@
 		  background-attachment: fixed;  
 		  background-size: cover;
 		}
-        .bg-overlay {
-            background: rgba(255, 255, 255, 0.95);
+		.bg-overlay {
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(10px);
         }
-        .drag-over { 
-            border-color: #3b82f6; 
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            transform: scale(1.02);
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
-            backdrop-filter: blur(15px);
-        }
-        .card-shadow {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(16px);
-        }
+        
         .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 255, 0.25);
+            backdrop-filter: white/5(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .btn-primary {
@@ -76,6 +64,26 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
         }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: white(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .admin-panel {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+        .hidden { display: none; }
+        .table-container {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -88,8 +96,9 @@
             <div class="flex justify-between items-center">
                 <h1 class="text-3xl font-bold text-white flex items-center">
                     <span class="text-4xl mr-3">📖</span>
-                    Buku Tamu Digital
+                    BeTamu DPRD ME
                 </h1>
+				
                 <div class="flex space-x-4">
                     <button onclick="showVisitorForm()" id="visitorBtn" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 backdrop-blur-sm border border-white border-opacity-20">
                         <span class="mr-2">👤</span>Daftar Kunjungan
@@ -101,23 +110,124 @@
                         <span class="mr-2">🚪</span>Logout
                     </button>
                 </div>
+				
             </div>
+			<div class="flex justify-between items-center">
+                <h1 class="text-1xl font-bold text-white flex items-center">
+                    (Basis Elektronik Tamu DPRD Kabupaten Muara Enim)
+                </h1>
+				</div>
         </div>
     </header>
 
     <!-- Visitor Form -->
     <div id="visitorForm" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <div class="glass-card rounded-2xl card-shadow p-8 border-t-4 border-purple-500">
+		
             <div class="text-center mb-8">
-                <div class="text-6xl mb-4">✨</div>
-                <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">Form Registrasi Kunjungan</h2>
-				<h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">DPRD Kabupaten Muara Enim</h2>
-                <p class="text-gray-700">Jalan Mayor Tjik Agus Kiemas, S.H. Kecamatan Muara Enim</p>
-				<p class="text-blue-400">Email: setwanmuaraenim@gmail.com</p>
+                <p align="center"><img src="logopemda.png" style="width: 100px;height: 100px;border-radius: 100%;"  ></img</p>
+                <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-white mb-2">Formulir Permohonan Kunjungan Tamu</h2>
+				<h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-white mb-2">DPRD Kabupaten Muara Enim</h2>
+                <p class="text-white/90">Jalan Mayor Tjik Agus Kiemas, S.H. Kecamatan Muara Enim</p>
+				<p class="text-white/90">Email: setwanmuaraenim@gmail.com</p>
             </div>
 
                         <form id="visitForm" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                     <!-- Nama -->
+                    <div>
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                            <span class="text-lg mr-2">👤</span>Nama Pemohon
+                        </label>
+                        <input type="text" id="fullName" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Masukkan nama lengkap">
+                    </div>
+					
+					<!-- Jabatan -->
+                    <div>
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                            <span class="text-lg mr-2">💼</span>Jabatan
+                        </label>
+                        <input type="text" id="position" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Masukkan jabatan">
+                    </div>
+
+                    <!-- Instansi -->
+                    <div>
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                            <span class="text-lg mr-2">🏢</span>Instansi
+                        </label>
+                        <input type="text" id="institution" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Nama instansi">
+                    </div>
+					
+					<!-- Alamat Instansi -->
+                    <div>
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                            <span class="text-lg mr-2">🏢</span>Alamat Instansi
+                        </label>
+                        <input type="text" id="institutions" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Masukkan alamat instansi">
+                    </div>
+					
+					<!-- Kabupaten/Kota -->
+                    <div>
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                            <span class="text-lg mr-2">🏢</span>Kabupaten/Kota
+                        </label>
+                        <input type="text" id="Kabupaten/Kota" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Nama Kabupaten/Kota">
+                    </div>
+					
+					<!-- Provinsi -->
+                    <div>
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                            <span class="text-lg mr-2">🏢</span>Provinsi
+                        </label>
+                        <input type="text" id="Provinsi" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Nama Provinsi">
+                    </div>
+					
+					<!-- Nomor HP -->
+                    <div>
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                            <span class="text-lg mr-2">📱</span>Nomor HP/ WA
+                        </label>
+                        <input type="tel" id="phoneNumber" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="08xxxxxxxxxx">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                            <span class="text-lg mr-2">📧</span>Email
+                        </label>
+                        <input type="email" id="email" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="contoh@gmail.com">
+                    </div>
+			
+                </div>
+
+                <!-- Tujuan Kunjungan -->
+                <div>
+                    <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                        <span class="text-lg mr-2">🎯</span>Tujuan Kunjungan
+                    </label>
+                    <select id="visitPurpose" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm">
+                        <option value="">Pilih tujuan kunjungan</option>
+                        <option value="consultation">💬 Audiensi</option>
+						<option value="business">💼 Kunjungan Kerja</option>
+                        <option value="personal">👤 Study Banding</option>
+                        <option value="other">📋 Lainnya</option>
+                    </select>
+                </div>
+
+                <!-- Keperluan -->
+                <div>
+                    <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
+                        <span class="text-lg mr-2">📝</span>Keperluan Detail
+                    </label>
+                    <textarea id="visitDetails" rows="4" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Jelaskan keperluan kunjungan Anda secara detail..."></textarea>
+                </div>
+				
+				<!-- Informasi Kunjungan -->
+                <div class="bg-white/10 rounded-xl p-6 border border-white/20">
+                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                        <span class="text-2xl mr-2">📅</span> Informasi Kunjungan
+                    </h3>
                     <!-- Tanggal Kunjungan -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
@@ -142,80 +252,22 @@
                         <input type="number" id="guestCount" min="1" max="20" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Masukkan jumlah tamu">
                     </div>
 
-                    <!-- Nama -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">👤</span>Nama Pemohon
-                        </label>
-                        <input type="text" id="fullName" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Masukkan nama lengkap">
-                    </div>
-
-                    <!-- Email -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">📧</span>Email
-                        </label>
-                        <input type="email" id="email" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="contoh@email.com">
-                    </div>
-
-                    <!-- Nomor HP -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">📱</span>Nomor HP/ WA
-                        </label>
-                        <input type="tel" id="phoneNumber" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="08xxxxxxxxxx">
-                    </div>
-
-                    <!-- Jabatan -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">💼</span>Jabatan
-                        </label>
-                        <input type="text" id="position" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Masukkan jabatan">
-                    </div>
-
-                    <!-- Instansi -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">🏢</span>Instansi
-                        </label>
-                        <input type="text" id="institution" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Nama instansi">
+                 
                     </div>
                 </div>
-
-                <!-- Tujuan Kunjungan -->
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                        <span class="text-lg mr-2">🎯</span>Tujuan Kunjungan
-                    </label>
-                    <select id="visitPurpose" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm">
-                        <option value="">Pilih tujuan kunjungan</option>
-                        <option value="consultation">💬 Audiensi</option>
-						<option value="business">💼 Kunjungan Kerja</option>
-                        <option value="personal">👤 Study Banding</option>
-                        <option value="other">📋 Lainnya</option>
-                    </select>
-                </div>
-
-                <!-- Keperluan -->
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                        <span class="text-lg mr-2">📝</span>Keperluan Detail
-                    </label>
-                    <textarea id="visitDetails" rows="4" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Jelaskan keperluan kunjungan Anda secara detail..."></textarea>
-                </div>
+				
 
                 <!-- Upload Dokumen -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Upload Area 1 - Dokumen Resmi -->
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
                             <span class="text-lg mr-2">📎</span>Surat Permohonan Kunjungan
                         </label>
                         <div id="dropZone1" class="upload-zone rounded-xl p-6 text-center cursor-pointer">
                             <div class="text-4xl mb-3">📄</div>
                             <p class="text-gray-700 font-medium mb-2 text-sm"> Surat atau dokumen resmi lainnya</p>
-                            <p class="text-xs text-gray-600">PDF, DOC, DOCX (Max: 5MB per file)</p>
+                            <p class="text-xs text-gray-600">PDF (Max: 10 MB per file)</p>
                             <input type="file" id="fileInput1" multiple accept=".pdf,.doc,.docx" class="hidden">
                         </div>
                         <div id="fileList1" class="mt-3 space-y-2"></div>
@@ -224,23 +276,25 @@
 
                     <!-- Upload Area 2 - Dokumen Pendukung -->
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                        <label class="block text-sm font-semibold text-white/90 mb-2 flex items-center">
                             <span class="text-lg mr-2">📎</span>Surat Tugas
                         </label>
                         <div id="dropZone2" class="upload-zone rounded-xl p-6 text-center cursor-pointer">
                             <div class="text-4xl mb-3">📄</div>
-                            <p class="text-gray-700 font-medium mb-2 text-sm">Surat atau dokumen pendukung lainnya</p>
-                            <p class="text-xs text-gray-600">PDF, DOC, DOCX, JPG, PNG (Max: 5MB per file)</p>
+                            <p class="text-gray-700 font-medium mb-2 text-sm">Surat atau dokumen resmi lainnya</p>
+                            <p class="text-xs text-gray-600">PDF (Max: 10 MB per file)</p>
                             <input type="file" id="fileInput2" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="hidden">
                         </div>
                         <div id="fileList2" class="mt-3 space-y-2"></div>
                         <div id="uploadError2" class="mt-2 text-red-600 text-sm font-medium hidden"></div>
                     </div>
                 </div>
+				<div>
 
                 <button type="submit" class="w-full btn-primary text-white font-semibold py-4 px-6 rounded-xl text-lg">
-                    <span class="mr-2">✅</span>Daftar Kunjungan
+                    <span class="mr-2">✅</span>Kirim Formulir Kunjungan
                 </button>
+				</div>
             </form>
         </div>
     </div>

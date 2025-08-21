@@ -14,7 +14,7 @@
 		  background-size: cover;
 		}
         .bg-overlay {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(10px);
         }
         .drag-over { 
@@ -31,7 +31,7 @@
             backdrop-filter: blur(16px);
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -88,7 +88,7 @@
             <div class="flex justify-between items-center">
                 <h1 class="text-3xl font-bold text-white flex items-center">
                     <span class="text-4xl mr-3">📖</span>
-                    Buku Tamu Digital
+                    BeTamu DPRD ME
                 </h1>
                 <div class="flex space-x-4">
                     <button onclick="showVisitorForm()" id="visitorBtn" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 backdrop-blur-sm border border-white border-opacity-20">
@@ -109,7 +109,7 @@
     <div id="visitorForm" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <div class="glass-card rounded-2xl card-shadow p-8 border-t-4 border-purple-500">
             <div class="text-center mb-8">
-                <div class="text-6xl mb-4">✨</div>
+                <p align="center"><img src="logopemda.png" style="width: 100px;height: 100px;border-radius: 100%;"  ></img></p>
                 <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">Form Registrasi Kunjungan</h2>
 				<h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">DPRD Kabupaten Muara Enim</h2>
                 <p class="text-gray-700">Jalan Mayor Tjik Agus Kiemas, S.H. Kecamatan Muara Enim</p>
@@ -118,30 +118,7 @@
 
                         <form id="visitForm" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Tanggal Kunjungan -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">📅</span>Tanggal Kunjungan
-                        </label>
-                        <input type="date" id="visitDate" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm">
-                    </div>
-
-                    <!-- Jam Kunjungan -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">🕐</span>Jam Kunjungan
-                        </label>
-                        <input type="time" id="visitTime" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm">
-                    </div>
-
-                    <!-- Jumlah Tamu -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">👥</span>Jumlah Tamu
-                        </label>
-                        <input type="number" id="guestCount" min="1" max="20" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Masukkan jumlah tamu">
-                    </div>
-
+           
                     <!-- Nama -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
@@ -149,24 +126,8 @@
                         </label>
                         <input type="text" id="fullName" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Masukkan nama lengkap">
                     </div>
-
-                    <!-- Email -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">📧</span>Email
-                        </label>
-                        <input type="email" id="email" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="contoh@email.com">
-                    </div>
-
-                    <!-- Nomor HP -->
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                            <span class="text-lg mr-2">📱</span>Nomor HP/ WA
-                        </label>
-                        <input type="tel" id="phoneNumber" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="08xxxxxxxxxx">
-                    </div>
-
-                    <!-- Jabatan -->
+					
+					<!-- Jabatan -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
                             <span class="text-lg mr-2">💼</span>Jabatan
@@ -181,6 +142,47 @@
                         </label>
                         <input type="text" id="institution" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Nama instansi">
                     </div>
+					
+					<!-- Alamat Instansi -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                            <span class="text-lg mr-2">🏢</span>Alamat Instansi
+                        </label>
+                        <input type="text" id="institutions" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Masukkan alamat instansi">
+                    </div>
+					
+					<!-- Kabupaten/Kota -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                            <span class="text-lg mr-2">🏢</span>Kabupaten/Kota
+                        </label>
+                        <input type="text" id="kabupaten" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Nama Kabupaten/Kota">
+                    </div>
+					
+					<!-- Provinsi -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                            <span class="text-lg mr-2">🏢</span>Provinsi
+                        </label>
+                        <input type="text" id="provinsi" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Nama Provinsi">
+                    </div>
+					
+					<!-- Nomor HP -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                            <span class="text-lg mr-2">📱</span>Nomor HP/ WA
+                        </label>
+                        <input type="tel" id="phoneNumber" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="08xxxxxxxxxx">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                            <span class="text-lg mr-2">📧</span>Email
+                        </label>
+                        <input type="email" id="email" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="contoh@gmail.com">
+                    </div>
+			
                 </div>
 
                 <!-- Tujuan Kunjungan -->
@@ -196,14 +198,28 @@
                         <option value="other">📋 Lainnya</option>
                     </select>
                 </div>
-
                 <!-- Keperluan -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                        <span class="text-lg mr-2">📝</span>Keperluan Detail
+                        <span class="text-lg mr-2">📝</span>Materi/Keperluan
                     </label>
                     <textarea id="visitDetails" rows="4" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" placeholder="Jelaskan keperluan kunjungan Anda secara detail..."></textarea>
                 </div>
+				
+				<div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-white/90 text-sm font-medium mb-2">Tanggal Kunjungan *</label>
+                            <input type="date" id="visitDate" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label class="block text-white/90 text-sm font-medium mb-2">Jam Kunjungan *</label>
+                            <input type="time" id="visitTime" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label class="block text-white/90 text-sm font-medium mb-2">Jumlah Tamu *</label>
+                            <input type="number" id="guestCount" min="1" max="infinity" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="1" required>
+                        </div>
+                    </div>
 
                 <!-- Upload Dokumen -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -215,8 +231,8 @@
                         <div id="dropZone1" class="upload-zone rounded-xl p-6 text-center cursor-pointer">
                             <div class="text-4xl mb-3">📄</div>
                             <p class="text-gray-700 font-medium mb-2 text-sm"> Surat atau dokumen resmi lainnya</p>
-                            <p class="text-xs text-gray-600">PDF, DOC, DOCX (Max: 5MB per file)</p>
-                            <input type="file" id="fileInput1" multiple accept=".pdf,.doc,.docx" class="hidden">
+                            <p class="text-xs text-gray-600">PDF(Max: 10MB per file)</p>
+                            <input type="file" id="fileInput1" multiple accept=".pdf" class="hidden">
                         </div>
                         <div id="fileList1" class="mt-3 space-y-2"></div>
                         <div id="uploadError1" class="mt-2 text-red-600 text-sm font-medium hidden"></div>
@@ -229,9 +245,9 @@
                         </label>
                         <div id="dropZone2" class="upload-zone rounded-xl p-6 text-center cursor-pointer">
                             <div class="text-4xl mb-3">📄</div>
-                            <p class="text-gray-700 font-medium mb-2 text-sm">Surat atau dokumen pendukung lainnya</p>
-                            <p class="text-xs text-gray-600">PDF, DOC, DOCX, JPG, PNG (Max: 5MB per file)</p>
-                            <input type="file" id="fileInput2" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="hidden">
+                            <p class="text-gray-700 font-medium mb-2 text-sm">Surat atau dokumen resmi lainnya</p>
+                            <p class="text-xs text-gray-600">PDF (Max: 10MB per file)</p>
+                            <input type="file" id="fileInput2" multiple accept=".pdf" class="hidden">
                         </div>
                         <div id="fileList2" class="mt-3 space-y-2"></div>
                         <div id="uploadError2" class="mt-2 text-red-600 text-sm font-medium hidden"></div>
@@ -367,6 +383,11 @@
                             <th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Nama Pemohon</th>
                             <th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Jabatan</th>
 							<th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Instansi</th>
+							<th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Alamat Instansi</th>
+							<th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Kabupaten/Kota</th>
+							<th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Provinsi</th>
+							<th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">No HP/WA</th>
+							<th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Email</th>
                             <th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Tujuan</th>
                             <th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Jumlah Tamu</th>
                             <th class="border-b border-gray-200 px-4 py-4 text-left font-semibold text-gray-700">Dokumen</th>
@@ -649,7 +670,8 @@
             e.preventDefault();
             
             const formData = {
-                id: Date.now(),
+              
+				id: Date.now(),
                 visitDate: document.getElementById('visitDate').value,
                 visitTime: document.getElementById('visitTime').value,
                 guestCount: parseInt(document.getElementById('guestCount').value),
@@ -663,6 +685,7 @@
                 documents: [...uploadedFiles1, ...uploadedFiles2],
                 status: 'pending',
                 registeredAt: new Date().toISOString()
+                
             };
 
             visitData.push(formData);
@@ -931,7 +954,7 @@
             }
             
             const csvContent = [
-                ['No', 'Tanggal', 'Jam', 'Nama', 'Email', 'HP', 'Jabatan', 'Instansi', 'Tujuan', 'Keperluan', 'Jumlah Tamu', 'Dokumen', 'Status'],
+                ['No', 'Tanggal', 'Jam', 'Nama', 'Email', 'HP', 'Jabatan', 'Instansi', 'Alamat Instansi', 'Kabupaten/Kota', 'Provinsi', 'Tujuan', 'Keperluan', 'Jumlah Tamu', 'Dokumen', 'Status'],
                 ...visitData.map((visit, index) => [
                     index + 1,
                     visit.visitDate,
@@ -941,6 +964,9 @@
                     visit.phoneNumber,
                     visit.position,
                     visit.institution,
+					visit.institutions,
+					visit.kabupaten,
+					visit.provinsi,
                     getPurposeText(visit.visitPurpose).replace(/[💬💼👤📋]/g, '').trim(),
                     visit.visitDetails,
                     visit.guestCount,
@@ -959,4 +985,5 @@
         }
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d46c8e75a47a69',t:'MTc1NDg4MDYxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
 </html>
